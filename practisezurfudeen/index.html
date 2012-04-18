@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Practise for lines and Curves</title>
+<script type="text/javascript">
+
+function init(){
+
+line();
+
+}
+function line(){
+
+
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.lineWidth=10;
+ctx.lineJoin="round";
+ctx.moveTo(20,20);
+ctx.lineTo(100,50);
+ctx.lineTo(20,100);
+ctx.stroke();
+
+
+
+
+}
+</script>
+</head>
+<body onload="init();">
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+your browser does not support the canvas tag </canvas>
+
+</body>
+</html>
