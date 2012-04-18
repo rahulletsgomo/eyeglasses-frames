@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Practice Quadratic Curve</title>
+<script type = "text/javascript" src = "../jquery/jquery.js"></script>
+<script type = "text/javascript">
+$(function(){
+ quadraticCurve();
+})
+
+function quadraticCurve(){
+var c=document.getElementById("myCanvas");
+var bottom=c.getContext("2d");
+/*
+var top=c.getContext("2d");
+top.beginPath();
+top.moveTo(100, 200);
+top.bezierCurveTo(-20,-100,-200,-100,200,20);
+top.stroke();
+*/
+bottom.beginPath();
+bottom.moveTo(20,20);
+bottom.bezierCurveTo(20,100,200,100,200,20);
+bottom.stroke();
+}
+</script>
+</head>
+<body>
+<canvas id = "myCanvas" width = "700" height = "800">
+</canvas>
+</body>
+</html>
