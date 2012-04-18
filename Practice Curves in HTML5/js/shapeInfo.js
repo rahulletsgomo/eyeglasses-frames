@@ -8,7 +8,22 @@ bottom.bezierCurveTo(100, 40, 200, 40, 200, 300);
 bottom.stroke();
 }
 
-function line(){
+//Global Varibales
+/*
+var canvas=document.getElementById("myCanvas");
+context = canvas.getContext("2d");
+context.lineWidth = 5;
+context.strokeStyle = "#0000ff";
+
+var topVariables = {"top":context, "xb1":600, "yb1": 200, "xb2":680, "yb2": 200, "xa1": 400, "ya1" : 200, "xa2": 480, "ya2" : 200,}
+var bottomVariables = {"bottom":context, "xb1":600, "yb1": 250, "xb2":680, "yb2": 250, "xa1": 400, "ya1" : 250, "xa2": 480, "ya2" : 250,}
+var leftVariables = {"left":context, "xb1":600, "yb1": 200, "xb2":600, "yb2": 250, "xa1": 400, "ya1" : 200, "xa2": 400, "ya2" : 250,}
+var rightVariables = {"right":context, "xb1":680, "yb1": 200, "xb2":680, "yb2": 250, "xa1": 480, "ya1" : 200, "xa2": 480, "ya2" : 250,}
+*/
+
+var isMoved = false;
+
+function line(moveInfo){
 
 var canvas=document.getElementById("myCanvas");
 var context = canvas.getContext("2d");
@@ -20,8 +35,38 @@ var bottomVariables = {"bottom":context, "xb1":600, "yb1": 250, "xb2":680, "yb2"
 var leftVariables = {"left":context, "xb1":600, "yb1": 200, "xb2":600, "yb2": 250, "xa1": 400, "ya1" : 200, "xa2": 400, "ya2" : 250,}
 var rightVariables = {"right":context, "xb1":680, "yb1": 200, "xb2":680, "yb2": 250, "xa1": 480, "ya1" : 200, "xa2": 480, "ya2" : 250,}
 
+if(moveInfo){
+ context.strokeStyle = "#ffffff";
+ topVariables.xa1 += moveInfo.count; 
+ topVariables.xb1 += moveInfo.count;
+ topVariables.xa2 += moveInfo.count;
+ topVariables.xb2 += moveInfo.count;
+ topVariables.ya1 += moveInfo.count;
+ topVariables.yb1 += moveInfo.count;
+ topVariables.ya2 += moveInfo.count;
+ topVariables.yb2 += moveInfo.count;
+ context.strokeStyle = "#0000ff";
+ console.log("Information from the line function below " );
+ console.log("Type : " + moveInfo.type + " Var : " + moveInfo.count);
+ console.log("Coordinate Info");
+ console.log(topVariables.xa1);
+ console.log(topVariables.xa2);
+ console.log(topVariables.xb1);
+ console.log(topVariables.xb2);
+}
+
 setCoordinates(bottomVariables, leftVariables, rightVariables, topVariables);
 }
+
+function top(moveInfo){
+ var message = (moveInfo > 0) ? "upwards" : "downwards"
+ console.log("The top will move " +message+ " by "+moveInfo+" pixels");
+ isMoved = true;
+ var moveInfo = {"type" : "top", "count" : 5}
+ line(moveInfo);
+ }
+ 
+
 
 function setCoordinates(bottomVariables, leftVariables, rightVariables, topVariables){
  topCoordinates(topVariables);
