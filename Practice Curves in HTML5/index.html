@@ -11,48 +11,32 @@ $(function(){
 function quadraticCurve(){
 var c=document.getElementById("myCanvas");
 var bottom=c.getContext("2d");
-/*
-var top=c.getContext("2d");
-top.beginPath();
-top.moveTo(100, 200);
-top.bezierCurveTo(-20,-100,-200,-100,200,20);
-top.stroke();
-*/
 bottom.beginPath();
 bottom.moveTo(100, 300);
 bottom.bezierCurveTo(100, 40, 200, 40, 200, 300);
-/*
-bottom.moveTo(20,20);
-bottom.bezierCurveTo(20,100,200,100,200,20);
-*/
 bottom.stroke();
 }
 
 function line(){
-var c=document.getElementById("myCanvas");
-var top=c.getContext("2d");
-var bottom = c.getContext("2d");
-var right = c.getContext("2d");
-var left = c.getContext("2d");
 
-top.beginPath(); 
-top.lineWidth = 5;
-top.strokeStyle = "#0000ff";
+var canvas=document.getElementById("myCanvas");
+var context = canvas.getContext("2d");
+context.lineWidth = 5;
+context.strokeStyle = "#0000ff";
 
-bottom.beginPath(); 
-bottom.lineWidth = 5;
-bottom.strokeStyle = "#0000ff";
+var topVariables = {"top":context, "xb1":600, "yb1": 200, "xb2":680, "yb2": 200, "xa1": 400, "ya1" : 200, "xa2": 480, "ya2" : 200,}
+var bottomVariables = {"bottom":context, "xb1":600, "yb1": 250, "xb2":680, "yb2": 250, "xa1": 400, "ya1" : 250, "xa2": 480, "ya2" : 250,}
+var leftVariables = {"left":context, "xb1":600, "yb1": 200, "xb2":600, "yb2": 250, "xa1": 400, "ya1" : 200, "xa2": 400, "ya2" : 250,}
+var rightVariables = {"right":context, "xb1":680, "yb1": 200, "xb2":680, "yb2": 250, "xa1": 480, "ya1" : 200, "xa2": 480, "ya2" : 250,}
 
-var topVariables = {"top":top, "xb1":600, "yb1": 200, "xb2":680, "yb2": 200, "xa1": 400, "ya1" : 200, "xa2": 480, "ya2" : 200,}
-var bottomVariables = {"bottom":bottom, "xb1":600, "yb1": 250, "xb2":680, "yb2": 250, "xa1": 400, "ya1" : 250, "xa2": 480, "ya2" : 250,}
-
-setCoordinates(bottomVariables, left, right, topVariables);
+setCoordinates(bottomVariables, leftVariables, rightVariables, topVariables);
 }
-function setCoordinates(bottomVariables, left, right, topVariables){
+
+function setCoordinates(bottomVariables, leftVariables, rightVariables, topVariables){
  topCoordinates(topVariables);
  bottomCoordinates(bottomVariables);
- leftCoordinates(left);
- rightCoordinates(right);
+ leftCoordinates(leftVariables);
+ rightCoordinates(rightVariables);
 }
 
 function topCoordinates(topVariables){
@@ -71,26 +55,20 @@ bottomVariables.bottom.lineTo(bottomVariables.xa2,bottomVariables.ya2);
 bottomVariables.bottom.stroke();
 }
 
-function leftCoordinates(left){
-left.beginPath(); 
-left.lineWidth = 5;
-left.strokeStyle = "#0000ff";
-left.moveTo(600,200);
-left.lineTo(600,250);
-left.moveTo(400,200);
-left.lineTo(400,250);
-left.stroke();
+function leftCoordinates(leftVariables){
+leftVariables.left.moveTo(leftVariables.xb1, leftVariables.yb1);
+leftVariables.left.lineTo(leftVariables.xb2, leftVariables.yb2);
+leftVariables.left.moveTo(leftVariables.xa1, leftVariables.ya1);
+leftVariables.left.lineTo(leftVariables.xa2, leftVariables.ya2);
+leftVariables.left.stroke();
 }
 
-function rightCoordinates(right){
-right.beginPath();
-right.lineWidth = 5;
-right.strokeStyle = "#0000ff";
-right.moveTo(680, 200);
-right.lineTo(680, 250);
-right.moveTo(480, 200);
-right.lineTo(480, 250);
-right.stroke();
+function rightCoordinates(rightVariables){
+rightVariables.right.moveTo(rightVariables.xb1, rightVariables.yb1);
+rightVariables.right.lineTo(rightVariables.xb2, rightVariables.yb2);
+rightVariables.right.moveTo(rightVariables.xa1, rightVariables.ya1);
+rightVariables.right.lineTo(rightVariables.xa2, rightVariables.ya2);
+rightVariables.right.stroke();
 }
 </script>
 </head>
