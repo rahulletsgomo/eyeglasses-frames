@@ -31,39 +31,44 @@ bottom.stroke();
 function line(){
 var c=document.getElementById("myCanvas");
 var top=c.getContext("2d");
+var bottom = c.getContext("2d");
 var right = c.getContext("2d");
 var left = c.getContext("2d");
-var bottom = c.getContext("2d");
-setCoordinates(top, bottom, left, right);
-}
 
-function setCoordinates(top, bottom, left, right){
- topCoordinates(top);
- bottomCoordinates(bottom);
+top.beginPath(); 
+top.lineWidth = 5;
+top.strokeStyle = "#0000ff";
+
+bottom.beginPath(); 
+bottom.lineWidth = 5;
+bottom.strokeStyle = "#0000ff";
+
+var topVariables = {"top":top, "xb1":600, "yb1": 200, "xb2":680, "yb2": 200, "xa1": 400, "ya1" : 200, "xa2": 480, "ya2" : 200,}
+var bottomVariables = {"bottom":bottom, "xb1":600, "yb1": 250, "xb2":680, "yb2": 250, "xa1": 400, "ya1" : 250, "xa2": 480, "ya2" : 250,}
+
+setCoordinates(bottomVariables, left, right, topVariables);
+}
+function setCoordinates(bottomVariables, left, right, topVariables){
+ topCoordinates(topVariables);
+ bottomCoordinates(bottomVariables);
  leftCoordinates(left);
  rightCoordinates(right);
 }
 
-function topCoordinates(top){
-top.beginPath(); 
-top.lineWidth = 5;
-top.strokeStyle = "#0000ff";
-top.moveTo(600,200);
-top.lineTo(680,200);
-top.moveTo(400, 200);
-top.lineTo(480, 200);
-top.stroke();
+function topCoordinates(topVariables){
+topVariables.top.moveTo(topVariables.xb1,topVariables.yb1);
+topVariables.top.lineTo(topVariables.xb2,topVariables.yb2);
+topVariables.top.moveTo(topVariables.xa1,topVariables.ya1);
+topVariables.top.lineTo(topVariables.xa2,topVariables.ya2);
+topVariables.top.stroke();
 }
 
-function bottomCoordinates(bottom){
-bottom.beginPath(); 
-bottom.lineWidth = 5;
-bottom.strokeStyle = "#0000ff";
-bottom.moveTo(600,250);
-bottom.lineTo(680,250);
-bottom.moveTo(400, 250);
-bottom.lineTo(480, 250);
-bottom.stroke();
+function bottomCoordinates(bottomVariables){
+bottomVariables.bottom.moveTo(bottomVariables.xb1,bottomVariables.yb1);
+bottomVariables.bottom.lineTo(bottomVariables.xb2,bottomVariables.yb2);
+bottomVariables.bottom.moveTo(bottomVariables.xa1,bottomVariables.ya1);
+bottomVariables.bottom.lineTo(bottomVariables.xa2,bottomVariables.ya2);
+bottomVariables.bottom.stroke();
 }
 
 function leftCoordinates(left){
