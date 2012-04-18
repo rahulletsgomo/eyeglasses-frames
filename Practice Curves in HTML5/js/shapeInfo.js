@@ -38,12 +38,12 @@ var rightVariables = {"right":context, "xb1":680, "yb1": 200, "xb2":680, "yb2": 
 if(moveInfo){
  context.strokeStyle = "#ffffff";
  topVariables.xa1 += moveInfo.count; 
- topVariables.xb1 += moveInfo.count;
- topVariables.xa2 += moveInfo.count;
- topVariables.xb2 += moveInfo.count;
  topVariables.ya1 += moveInfo.count;
+ topVariables.xb1 += moveInfo.count;
  topVariables.yb1 += moveInfo.count;
+ topVariables.xa2 += moveInfo.count;
  topVariables.ya2 += moveInfo.count;
+ topVariables.xb2 += moveInfo.count;
  topVariables.yb2 += moveInfo.count;
  context.strokeStyle = "#0000ff";
  console.log("Information from the line function below " );
