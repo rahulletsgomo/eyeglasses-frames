@@ -4,7 +4,8 @@
 <script type = "text/javascript" src = "../jquery/jquery.js"></script>
 <script type = "text/javascript">
 $(function(){
- quadraticCurve();
+ //quadraticCurve();
+ line();
 })
 
 function quadraticCurve(){
@@ -25,6 +26,66 @@ bottom.moveTo(20,20);
 bottom.bezierCurveTo(20,100,200,100,200,20);
 */
 bottom.stroke();
+}
+
+function line(){
+var c=document.getElementById("myCanvas");
+var top=c.getContext("2d");
+var right = c.getContext("2d");
+var left = c.getContext("2d");
+var bottom = c.getContext("2d");
+setCoordinates(top, bottom, left, right);
+}
+
+function setCoordinates(top, bottom, left, right){
+ topCoordinates(top);
+ bottomCoordinates(bottom);
+ leftCoordinates(left);
+ rightCoordinates(right);
+}
+
+function topCoordinates(top){
+top.beginPath(); 
+top.lineWidth = 5;
+top.strokeStyle = "#0000ff";
+top.moveTo(600,200);
+top.lineTo(680,200);
+top.moveTo(400, 200);
+top.lineTo(480, 200);
+top.stroke();
+}
+
+function bottomCoordinates(bottom){
+bottom.beginPath(); 
+bottom.lineWidth = 5;
+bottom.strokeStyle = "#0000ff";
+bottom.moveTo(600,250);
+bottom.lineTo(680,250);
+bottom.moveTo(400, 250);
+bottom.lineTo(480, 250);
+bottom.stroke();
+}
+
+function leftCoordinates(left){
+left.beginPath(); 
+left.lineWidth = 5;
+left.strokeStyle = "#0000ff";
+left.moveTo(600,200);
+left.lineTo(600,250);
+left.moveTo(400,200);
+left.lineTo(400,250);
+left.stroke();
+}
+
+function rightCoordinates(right){
+right.beginPath();
+right.lineWidth = 5;
+right.strokeStyle = "#0000ff";
+right.moveTo(680, 200);
+right.lineTo(680, 250);
+right.moveTo(480, 200);
+right.lineTo(480, 250);
+right.stroke();
 }
 </script>
 </head>
