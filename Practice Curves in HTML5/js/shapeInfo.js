@@ -49,20 +49,16 @@ if(moveInfo){
  console.log("Information from the line function below " );
  console.log("Type : " + moveInfo.type + " Var : " + moveInfo.count);
  console.log("Coordinate Info");
- console.log(topVariables.xa1);
- console.log(topVariables.xa2);
- console.log(topVariables.xb1);
- console.log(topVariables.xb2);
 }
 
 setCoordinates(bottomVariables, leftVariables, rightVariables, topVariables);
 }
 
-function top(moveInfo){
+function top(getMoveInfo){
  var message = (moveInfo > 0) ? "upwards" : "downwards"
  console.log("The top will move " +message+ " by "+moveInfo+" pixels");
  isMoved = true;
- var moveInfo = {"type" : "top", "count" : 5}
+ var moveInfo = {"type" : "top", "count" : getMoveInfo}
  line(moveInfo);
  }
  
@@ -76,10 +72,14 @@ function setCoordinates(bottomVariables, leftVariables, rightVariables, topVaria
 }
 
 function topCoordinates(topVariables){
-topVariables.top.moveTo(topVariables.xb1,topVariables.yb1);
-topVariables.top.lineTo(topVariables.xb2,topVariables.yb2);
+ console.log(topVariables.xa1);
+ console.log(topVariables.xa2);
+ console.log(topVariables.xb1);
+ console.log(topVariables.xb2);
 topVariables.top.moveTo(topVariables.xa1,topVariables.ya1);
 topVariables.top.lineTo(topVariables.xa2,topVariables.ya2);
+topVariables.top.moveTo(topVariables.xb1,topVariables.yb1);
+topVariables.top.lineTo(topVariables.xb2,topVariables.yb2);
 topVariables.top.stroke();
 }
 
