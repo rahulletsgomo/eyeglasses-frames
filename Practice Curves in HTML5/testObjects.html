@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Test Objects</title>
+<script type = "text/javascript" src = "../jquery/jquery.js"></script>
+<script type = "text/javascript">
+$(function(){
+ var testObject = {
+  user : ["Rahul" ,"Zurfudeen"],
+  project : "Eye Glass Frames", 
+  versionControl : "GIT",
+  callAttributes : function(){
+   console.log("Developers : ");
+   for(var i = 0; i < this.user.length; i++){
+    console.log(this.user[i]);
+   }
+   console.log("Project : " + this.project);
+   console.log("Version Control System Used : "+this.versionControl);
+  }
+ }
+ testObject.callAttributes();
+})
+</script>
+</head>
+<body>
+</body>
+</html>
